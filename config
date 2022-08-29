@@ -5,14 +5,17 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# cursor theme ingtk apps
+# dunst messages
+exec dunst &
+
+# cursor theme in gtk apps
 exec_always gsettings set org.gnome.desktop.interface cursor-theme 'Sunity-cursors'
 
 # swaylock
-exec swayidle timeout 300 "swaylock -c 2e3440"
+exec swayidle timeout 300 "swaylock -c 2e3440" &
 
 # screenshot
-bindsym Print exec grim
+bindsym Print exec --no-startup-id grim ~/Pictures/$(date +"%Y%m%d%H%M%S")_screenshot.png -q 100 && notify-send "screenshot taken"
 
 # default volume
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 20%
@@ -37,7 +40,7 @@ input * {
 
 # waybar
 exec_always --no-startup-id killall -q waybar
-exec_always --no-startup-id waybar
+exec_always --no-startup-id waybar &
 
 #wallpapers
 output "*" bg ~/Pictures/4k-minimalist-misty-mountain-pumpb5rzqjmu3rp5.jpg fill
@@ -46,9 +49,6 @@ set $mod Mod4
 
 # pavucontrol
 for_window [app_id="pavucontrol"] floating enable, resize set width 550 px height 600 px, move position cursor, move down 35
-
-# godot
-for_window [app_id="godot"] floating enable
 
 # gaps
 gaps inner 6
