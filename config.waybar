@@ -1,0 +1,83 @@
+{
+		"layer": "top",
+		"position": "top",
+		"height": 20,
+		"spacing": 3,
+		"modules-left": ["sway/workspaces", "sway/window"],
+		"modules-center": ["clock"],
+		"modules-right": [
+				"sway/language",
+				"tray",
+				"backlight", 
+				"pulseaudio", 
+				"network", 
+				"battery"
+				],
+		
+		"tray": {
+				"icon-size": 20,
+				"spacing": 8,
+		},
+
+		"sway/window": {
+				"format": " {title}",
+				"tooltip": false,
+		},
+
+		"sway/language": {
+				"format": " {}",
+				"on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+				"tooltip": false,
+		},
+
+		"sway/workspaces": {
+				"disable-scroll": false,
+				"all-outputs": true,
+				"format": "{name}",
+		},
+		
+		"clock": {
+				"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+				"format-alt": " {:%Y-%m-%d}",
+				"tooltip": false,
+		},
+
+		"backlight": {
+				"format": "{icon} {percent}%",
+				"format-icons": [""],
+				"on-scroll-down": "xbacklight -dec 5",
+				"on-scroll-up": "xbacklight -inc 5",
+		},
+
+		"battery": {
+				"states": {
+						"warning": 20,
+						"critical": 10,
+				},
+				
+				"format": "{icon} {capacity}%",
+				"format-charging": "{icon} {capacity}%",
+				"format-icons": [""],
+				"max-lenght": 25,
+				"tooltip": false,
+		},
+
+		"network": {
+				"format-wifi": " {essid}",
+				"format-disconnected": "Disconnected",
+				"tooltip": false,
+		},
+
+		"pulseaudio": {
+				"format": "墳 {volume}% {format_source}",
+				"format-bluetooth": " {volume}% {format_source}",
+				"format-bluetooth-muted": " {volume}% {format_source}",
+				"format-muted": "婢 {volume}% {format_source}",
+				"format-source": " {volume}%",
+				"format-source-muted": " {volume}%",
+				"on-click-right": "pavucontrol",
+				"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+				"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+				"tooltip": false,
+		},
+}

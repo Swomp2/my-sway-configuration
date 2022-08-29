@@ -1,0 +1,141 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, MesloLGS;
+    font-size: 14px;
+	margin: 0;
+	padding: 0;
+	min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #eceff4;
+}
+
+#tray {
+    background: #d08770;
+	color: #2e3440;
+	border-left: 5px solid #d08770;
+	border-right: 5px solid #d08770;
+	border-radius: 5px;
+}
+
+#window {
+    background: #88c0d0;
+	color: #2e3440;
+	border-left: 10px solid #88c0d0;
+	border-right: 10px solid #88c0d0;
+	border-radius: 5px;
+	margin: 0 10px;
+}
+
+#clock {
+    background: #a3be8c;
+	border-left: 10px solid #a3be8c;
+	border-right: 10px solid #a3be8c;
+	color: #2e3440;
+	border-radius: 5px;
+	padding: 0 0px;
+	margin: 0 5px;
+}
+
+#workspaces button {
+    padding: 2 7px;
+	margin: 0 2px;
+	background: #2e3440;
+    color: #eceff4;
+    border: none;
+    border-radius: 5px;
+}
+
+#workspaces button:hover {
+    background: #b48ead;
+	color: #2e3440;
+	box-shadow: 0 0px;
+}
+
+#workspaces button.focused {
+    background: #b48ead;
+	color: #2e3440;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#battery,
+#backlight,
+#network,
+#pulseaudio,
+#language {
+    padding: 0 10px;
+}
+
+#battery {
+    background-color: #d8dee9;
+    color: #2e3440;
+	border-radius: 5px;
+	border-left: 3px solid #d8dee9;
+	border-right: 3px solid #d8dee9;
+}
+
+#battery.charging {
+    color: #2e3440;
+    background-color: #a3be8c;
+	border-radius: 5px;
+	border-right: 3px solid #a3be8c;
+	border-left: 3px solid #a3be8c;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #bf616a;
+	border-radius: 5px;
+	border-left: 3px solid #bf616a;
+	border-right: 3px solid #bf616a;
+    color: #eceff4;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#backlight {
+    background-color: #81a1c1;
+	color: #2e3440;
+	border-radius: 5px;
+	border-right: 1px solid #81a1c1;
+	border-left: 1px solid #81a1c1;
+}
+
+#network {
+    background-color: #5e81ac;
+	color: #eceff4;
+	border-radius: 5px;
+}
+
+#network.disconnected {
+    background-color: #bf616a;
+	color: #eceff4;
+	border-radius: 5px;
+}
+
+#pulseaudio {
+    background-color: #ebcb8b;
+    color: #2e3440;
+	border-radius: 5px;
+}
+
+#pulseaudio.muted {
+    background-color: #ebcb8b;
+    color: #2e3440;
+	border-radius: 5px;
+}
+
+#language {
+    background: #8fbcbb;
+    color: #2e3440;
+    border-left: 5px solid #8fbcbb;
+	border-right: 5px solid #8fbcbb;
+	border-radius: 5px;
+}
