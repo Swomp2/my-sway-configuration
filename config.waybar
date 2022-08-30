@@ -3,15 +3,16 @@
 		"position": "top",
 		"height": 25,
 		"spacing": 3,
-		"modules-left": ["sway/workspaces", "sway/window"],
-		"modules-center": ["clock"],
+		"modules-left": ["sway/workspaces"],
+		"modules-center": ["sway/window"],
 		"modules-right": [
 				"tray",
 				"sway/language",
 				"backlight", 
 				"pulseaudio", 
 				"network", 
-				"battery"
+				"battery",
+				"clock"
 				],
 		
 		"tray": {
