@@ -34,7 +34,6 @@ window#waybar {
 	border-right: 10px solid #a3be8c;
 	color: #2e3440;
 	border-radius: 5px;
-	padding: 0 0px;
 }
 
 #workspaces button {
