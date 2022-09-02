@@ -108,13 +108,13 @@ window#waybar {
 
 #network {
     background-color: #5e81ac;
-	color: #eceff4;
+	color: #2e3440;
 	border-radius: 5px;
 }
 
 #network.disconnected {
     background-color: #bf616a;
-	color: #eceff4;
+	color: #2e3440;
 	border-radius: 5px;
 }
 
