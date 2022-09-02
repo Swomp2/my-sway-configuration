@@ -38,7 +38,7 @@
 		},
 		
 		"clock": {
-				"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+				"tooltip-format": "{:%Y %B}",
 				"format-alt": " {:%Y-%m-%d}",
 				"tooltip": false,
 		},
@@ -67,15 +67,20 @@
 				"format-wifi": " {essid}",
 				"format-disconnected": "Disconnected",
 				"tooltip": false,
+				"on-click": "wifi",
 		},
 
 		"pulseaudio": {
-				"format": "墳 {volume}% {format_source}",
+				"format": "{icon} {volume}% {format_source}",
 				"format-bluetooth": " {volume}% {format_source}",
 				"format-bluetooth-muted": " {volume}% {format_source}",
 				"format-muted": "婢 {volume}% {format_source}",
 				"format-source": " {volume}%",
 				"format-source-muted": " {volume}%",
+				"format-icons": {
+						"headphone": "",
+						"default": "墳"
+				},
 				"on-click-right": "pavucontrol",
 				"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 				"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
