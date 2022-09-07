@@ -2,9 +2,11 @@
 		"layer": "top",
 		"position": "top",
 		"height": 25,
+		"width": 1910,
 		"spacing": 3,
-		"modules-left": ["sway/workspaces"],
-		"modules-center": ["sway/window"],
+		"margin-top": 5,
+		"modules-left": ["sway/workspaces", "sway/window"],
+		"modules-center": [],
 		"modules-right": [
 				"tray",
 				"sway/language",
