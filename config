@@ -29,13 +29,13 @@ exec --no-startup-id xbacklight -set 20
 # touchpad
 input type:touchpad {
     tap enabled
-	natural_scroll enabled
+    natural_scroll enabled
 }
 
 # keyboard
 input * {
     xkb_layout "us,ru"
-	xkb_options "grp:alt_shift_toggle"
+    xkb_options "grp:alt_shift_toggle"
 }
 
 # waybar
