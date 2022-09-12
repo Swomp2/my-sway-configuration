@@ -1,8 +1,8 @@
 [global]
-		font = "MesloLGS NF Regular 10"
-        corner_radius = 5
+		font = "Liberation Serif 12"
+                corner_radius = 5
 		width = (20, 400)
-		origin = top-right
+		origin = top-center
 		offset = 10x10
 		format = "<b>%s</b>\n%b"
 		force_xwayland = false
@@ -15,7 +15,7 @@
 		urgency = low
 
 [urgency_low]
-		background = "#d8dee9"
+		background = "#a3be8c"
 		foreground = "#2e3440"
 		frame_color = "#a3be8c"
 		timeout = 5
@@ -27,7 +27,7 @@
 		max_icon_size = 128
 
 [urgency_normal]
-		background = "#d8dee9"
+		background = "#a3be8c"
 		foreground = "#2e3440"
 		frame_color = "#a3be8c"
 		timeout = 5
@@ -39,7 +39,7 @@
 		max_icon_size = 128
 
 [urgency_critical]
-		background = "#d8dee9"
+		background = "#bf616a"
 		foreground = "#2e3440"
 		frame_color = "#bf616a"
 		timeout = 5
