@@ -9,13 +9,15 @@
 exec dunst &
 
 # cursor theme in gtk apps
-exec_always gsettings set org.gnome.desktop.interface cursor-theme 'Sunity-cursors'
-
+exec_always {
+	gsettings set $gnome-schema cursor-theme 'Simp1e-Nord-Dark'
+	gsettings set $gnome-schema gtk-theme 'Zafiro-Nord-Black'
+}
 # swaylock
 exec swayidle timeout 300 "swaylock -c 2e3440" &
 
 # screenshot
-bindsym Print exec --no-startup-id grim ~/Pictures/$(date +"%Y%m%d%H%M%S")_screenshot.png -q 100 && notify-send "screenshot taken"
+bindsym Print exec --no-startup-id grim ~/Pictures/$(date +"%Y%m%d%H%M%S")_screenshot.png -q 100 && notify-send "Скриншот сделан"
 
 # default volume
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 20%
@@ -24,7 +26,7 @@ exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 20%
 exec gentoo-pipewire-launcher
 
 # default brightness
-exec --no-startup-id xbacklight -set 20
+exec --no-startup-id xbacklight -set 30
 
 # touchpad
 input type:touchpad {
@@ -43,7 +45,8 @@ exec_always --no-startup-id killall -q waybar
 exec_always --no-startup-id waybar &
 
 #wallpapers
-output "*" bg ~/Pictures/4k-minimalist-misty-mountain-pumpb5rzqjmu3rp5.jpg fill
+set $wallpapers_path $HOME/Pictures/wallpapers
+output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
 set $mod Mod4
 
@@ -194,10 +197,10 @@ mode "resize" {
         bindsym semicolon resize shrink width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
