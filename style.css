@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, MesloLGS;
-    font-size: 15px;
+    font-family: FontAwesome;
+    font-size: 14px;
 	margin: 0px;
 	padding: 0px;
 	min-height: 0;
@@ -9,33 +9,38 @@
 }
 
 window#waybar {
-    background-color: #2e3440;
+    background-color: transparent;
     color: #eceff4;
 }
 
 #tray {
-    background: #8fbcbb;
+    background: #ebcb8b;
 	color: #2e3440;
-	border-left: 5px solid #8fbcbb;
-	border-right: 5px solid #8fbcbb;
+	border-left: 5px solid #ebcb8b;
+	border-right: 5px solid #ebcb8b;
 	border-radius: 5px;
 }
 
 #window {
-    background: #8fbcbb;
+    background: #ebcb8b;
 	color: #2e3440;
-	border-left: 10px solid #8fbcbb;
-	border-right: 10px solid #8fbcbb;
+	border-left: 10px solid #ebcb8b;
+	border-right: 10px solid #ebcb8b;
 	border-radius: 5px;
 }
 
 #clock {
-    background: #8fbcbb;
-	border-left: 10px solid #8fbcbb;
-	border-right: 10px solid #8fbcbb;
+    background: #ebcb8b;
+	border-left: 10px solid #ebcb8b;
+	border-right: 10px solid #ebcb8b;
 	color: #2e3440;
 	border-radius: 5px;
 	padding: 0 0px;
+}
+
+#workspaces {
+		border-radius: 5px;
+		background: #2e3440;
 }
 
 #workspaces button {
@@ -47,13 +52,13 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    background: #8fbcbb;
+    background: #ebcb8b;
 	color: #2e3440;
 	box-shadow: 0px 0px;
 }
 
 #workspaces button.focused {
-    background: #8fbcbb;
+    background: #ebcb8b;
 	color: #2e3440;
 }
 
@@ -70,11 +75,11 @@ window#waybar {
 }
 
 #battery {
-    background-color: #8fbcbb;
+    background-color: #ebcb8b;
     color: #2e3440;
 	border-radius: 5px;
-	border-left: 3px solid #8fbcbb;
-	border-right: 3px solid #8fbcbb;
+	border-left: 3px solid #ebcb8b;
+	border-right: 3px solid #ebcb8b;
 }
 
 #battery.charging {
@@ -99,15 +104,15 @@ window#waybar {
 }
 
 #backlight {
-    background-color: #8fbcbb;
+    background-color: #ebcb8b;
 	color: #2e3440;
 	border-radius: 5px;
-	border-right: 1px solid #8fbcbb;
-	border-left: 1px solid #8fbcbb;
+	border-right: 1px solid #ebcb8b;
+	border-left: 1px solid #ebcb8b;
 }
 
 #network {
-    background-color: #8fbcbb;
+    background-color: #ebcb8b;
 	color: #2e3440;
 	border-radius: 5px;
 }
@@ -119,21 +124,21 @@ window#waybar {
 }
 
 #pulseaudio {
-    background-color: #8fbcbb;
+    background-color: #ebcb8b;
     color: #2e3440;
 	border-radius: 5px;
 }
 
 #pulseaudio.muted {
-    background-color: #8fbcbb;
+    background-color: #ebcb8b;
     color: #2e3440;
 	border-radius: 5px;
 }
 
 #language {
-    background: #8fbcbb;
+    background: #ebcb8b;
     color: #2e3440;
-    border-left: 5px solid #8fbcbb;
-	border-right: 5px solid #8fbcbb;
+    border-left: 5px solid #ebcb8b;
+	border-right: 5px solid #ebcb8b;
 	border-radius: 5px;
 }
