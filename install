@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# colors:
+RED='\033[31m'
+GREEN='\033[32m'
+NORMAL='\033[0m'
+YELLOW='\033[33m'
+
+echo -e "${YELLOW}Do you want to copy my alacritty config?${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+read
+
+if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = "" || $REPLY = " " ]]; then
+
+		cp .alacritty.yml $HOME/
+
+fi
+
+echo -e "${YELLOW}Do you want to copy my neovim config?${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+read
+
+if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = "" || $REPLY = " " ]]; then
+
+		mkdir $HOME/.config/nvim
+		cp init.vim $HOME/.config/nvim/
+
+		echo -e "${YELLOW}Do you want to install vim-plug?${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+		read
+
+		if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = "" || $REPLY = " " ]]; then
+				sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+		fi
+
+fi
+
+echo -e "${YELLOW}Do you want to copy my dunst config?${NORMAL} [${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+read
+
+if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = "" || $REPLY = " " ]]; then
+		
+		mkdir $HOME/.config/dunst
+		cp dunstrc $HOME/.config/dunst/
+
+fi
+
+echo -e "${YELLOW}Do you want to copy my waybar configuration?${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+read
+
+if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = "" || $REPLY = " " ]]; then
+
+		mkdir $HOME/.config/waybar
+		cp waybar.config $HOME/.config/waybar/config
+		cp style.css $HOME/.config/waybar/
+
+fi
+
+echo -e "${YELLOW}Do you want to copy my sway config?${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+read
+
+if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = "" || $REPLY = " " ]]; then
+
+		mkdir $HOME/.config/sway
+		cp config $HOME/.config/
+
+fi
