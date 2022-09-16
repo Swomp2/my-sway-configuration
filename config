@@ -5,7 +5,7 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# dunst messages
+# dunst
 exec dunst &
 
 # cursor theme in gtk apps
@@ -44,7 +44,7 @@ input * {
 exec_always --no-startup-id killall -q waybar
 exec_always --no-startup-id waybar &
 
-#wallpapers
+# wallpapers
 set $wallpapers_path $HOME/Pictures/wallpapers
 output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
@@ -82,6 +82,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# random wallpaper
+bindsym $mod+Shift+w output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
 # start a terminal
 bindsym $mod+Return exec alacritty
