@@ -8,11 +8,16 @@
 # dunst
 exec dunst &
 
+# waybar
+exec_always --no-startup-id killall -q waybar
+exec_always --no-startup-id waybar &
+
 # cursor theme in gtk apps
+set $gnome-schema org.gnome.desktop.interface
 exec_always {
-	gsettings set org.gnome.desktop.interface cursor-theme 'Simp1e-Nord-Dark'
-	seat seat0 xcursor_theme Simp1e-Nord-Dark
+	gsettings set $gnome-schema cursor-theme 'BreezeX-Dark'
 }
+
 # swaylock
 exec swayidle timeout 300 "swaylock -c 2e3440" &
 
@@ -20,13 +25,10 @@ exec swayidle timeout 300 "swaylock -c 2e3440" &
 bindsym Print exec --no-startup-id grim ~/Pictures/$(date +"%Y%m%d%H%M%S")_screenshot.png -q 100 && notify-send "Скриншот сделан"
 
 # default volume
-exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 20%
-
-# pipewire
-exec gentoo-pipewire-launcher
+exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 30%
 
 # default brightness
-exec --no-startup-id xbacklight -set 30
+exec --no-startup-id light -S 30
 
 # touchpad
 input type:touchpad {
@@ -40,21 +42,14 @@ input * {
     xkb_options "grp:alt_shift_toggle"
 }
 
-# waybar
-exec_always --no-startup-id killall -q waybar
-exec_always --no-startup-id waybar &
-
 # wallpapers
 set $wallpapers_path $HOME/Pictures/wallpapers
 output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
 set $mod Mod4
 
-# dbus-launch
-exec --no-startup-id dbus-launch
-
 # librewolf/firefox
-bindsym $mod+Shift+f exec librewolf-bin
+bindsym $mod+Shift+f exec librewolf
 
 # strawberry
 for_window [app_id="strawberry"] move to workspace 2
@@ -77,8 +72,8 @@ default_border pixel 2
 default_floating_border pixel 2
 
 # brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -96,7 +91,7 @@ floating_modifier $mod
 bindsym $mod+Shift+w output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
