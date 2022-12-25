@@ -8,18 +8,22 @@
 # dunst
 exec dunst &
 
-# waybar
-exec_always --no-startup-id killall -q waybar
-exec_always --no-startup-id waybar &
+# polkit agent
+exec lxqt-policykit-agent &
 
-# cursor theme in gtk apps
-set $gnome-schema org.gnome.desktop.interface
-exec_always {
-	gsettings set $gnome-schema cursor-theme 'BreezeX-Dark'
-}
+# waybar
+exec systemctl --user import-environment
+exec --no-startup-id waybar &
+
+# cursor theme
+seat seat0 xcursor_theme "Breeze" 10
+
+# udiskie
+exec udiskie &
 
 # swaylock
-exec swayidle timeout 300 "swaylock -c 2e3440" &
+exec swayidle -w timeout 300 "swaylock -c 2e3440" timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "swaylock -c 2e3440"
+exec sway-audio-idle-inhibit 
 
 # screenshot
 bindsym Print exec --no-startup-id grim ~/Pictures/$(date +"%Y%m%d%H%M%S")_screenshot.png -q 100 && notify-send "Скриншот сделан"
@@ -47,9 +51,6 @@ set $wallpapers_path $HOME/Pictures/wallpapers
 output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
 set $mod Mod4
-
-# librewolf/firefox
-bindsym $mod+Shift+f exec librewolf
 
 # strawberry
 for_window [app_id="strawberry"] move to workspace 2
@@ -91,13 +92,16 @@ floating_modifier $mod
 bindsym $mod+Shift+w output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id bemenu-run -b
+bindsym $mod+d exec --no-startup-id wofi --show=drun
+
+# start swaylock
+bindsym $mod+Shift+e swaylock -c 2e3440
 
 # change focus
 bindsym $mod+j focus left
@@ -183,12 +187,10 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec killall sway
+bindsym $mod+Shift+q exec killall sway
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
